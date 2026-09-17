@@ -61,17 +61,17 @@ By replacing high-risk manual reverse-engineering and spreadsheet-based auditing
 
 ```mermaid
 flowchart TD
-    ScanReq([Cloud Scan & Migration Request]) --> IntentRouter[1. Intent Router]
-    IntentRouter --> Discovery[2. Cloud Discovery Agent]
-    Discovery --> GraphAgent[3. Dependency Graph Agent]
-    GraphAgent --> Classifier[4. Resource Classifier & Adoption Planner]
-    Classifier --> Composer[5. Terraform / OpenTofu Composer]
-    Composer --> Validator[6. Sandbox Validation Agent]
-    Validator --> Security[7. Policy & Security Agent (tfsec, Checkov, OPA)]
-    Security -->|Violations Found| Repair[8. Autonomous Repair Agent]
-    Repair -->|Retry Loop <= 2| Validator
-    Security -->|Verified Clean| DocAgent[9. Documentation & Artifact Agent]
-    DocAgent --> Artifacts([Migration Bundle: Verified HCL + Import Plan + Reports])
+    ScanReq(["Cloud Scan & Migration Request"]) --> IntentRouter["1. Intent Router"]
+    IntentRouter --> Discovery["2. Cloud Discovery Agent"]
+    Discovery --> GraphAgent["3. Dependency Graph Agent"]
+    GraphAgent --> Classifier["4. Resource Classifier & Adoption Planner"]
+    Classifier --> Composer["5. Terraform / OpenTofu Composer"]
+    Composer --> Validator["6. Sandbox Validation Agent"]
+    Validator --> Security["7. Policy & Security Agent (tfsec, Checkov, OPA)"]
+    Security -->|"Violations Found"| Repair["8. Autonomous Repair Agent"]
+    Repair -->|"Retry Loop <= 2"| Validator
+    Security -->|"Verified Clean"| DocAgent["9. Documentation & Artifact Agent"]
+    DocAgent --> Artifacts(["Migration Bundle: Verified HCL + Import Plan + Reports"])
 ```
 
 ---
@@ -95,8 +95,8 @@ flowchart TD
 
 ### 1. Clone & Configure
 ```bash
-git clone https://github.com/yourusername/Terraform_Agent.git
-cd Terraform_Agent
+git clone https://github.com/rashikagangraj/TerraAgent.git
+cd TerraAgent
 cp .env.example .env
 ```
 
